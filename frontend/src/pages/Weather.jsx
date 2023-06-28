@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Weathercard from "../components/weather/weathercard";
+
 import WeatherSearch from "../components/weatherComp/WeatherSearch";
 import WeeklyWeather from "../components/weather/WeeklyWeather";
 import { useSelector } from "react-redux";
 import { getWeeklyWeatherInfo } from "../utils/api";
 import DailyWeather from "../components/weather/DailyWeather";
+import Weathercard from "../components/weather/WeatherCard";
 
 function Weather() {
   // const [weatherdata, setWeatherdata] = useState(null);
