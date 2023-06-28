@@ -5,10 +5,8 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Signup from "./pages/Signup.jsx";
 import Login from "./pages/Login.jsx";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Popup from "./components/Popup.jsx";
-import Modal from "./components/Model.jsx";
 import Weather from "./pages/Weather.jsx";
 import Task from "./pages/Task.jsx";
 import Home from "./pages/Home.jsx";
@@ -17,6 +15,7 @@ import { store } from "./redux/store.js";
 import ListDetails from "./components/task/ListDetails.jsx";
 import List from "./components/task/List.jsx";
 import ProtectedRoute from "./utils/ProtectedRoutes.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
