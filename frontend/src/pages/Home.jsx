@@ -1,7 +1,7 @@
 import React from "react";
 import Title from "../components/Title";
 import Task from "../components/todos/Task";
-import Weathercard from "../components/weather/weathercard";
+import Weathercard from "../components/weather/WeatherCard";
 
 function Home() {
   return (
