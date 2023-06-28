@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { login } from "../utils/api";
 import { toast } from "react-toastify";
 import cookie from "js-cookie";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function Login() {
   const {
     register,
@@ -68,6 +68,9 @@ function Login() {
           >
             Login
           </button>
+          <Link to={"/signup"}>
+           Don't have an accouunt <span className="text-center text-blue-600">Sign</span>
+          </Link>
         </form>
       </div>
     </div>

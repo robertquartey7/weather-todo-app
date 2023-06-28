@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { signUp } from "../utils/api";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 function Signup() {
   const {
     register,
@@ -73,6 +74,10 @@ function Signup() {
             Signup
           </button>
         </form>
+        <Link to={"/login"}>
+          Already have an accouunt{" "}
+          <span className="text-center  text-blue-600">Login</span>
+        </Link>
       </div>
     </div>
   );
