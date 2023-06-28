@@ -7,7 +7,7 @@ import { getWeeklyWeatherInfo } from "../utils/api";
 import DailyWeather from "../components/weather/DailyWeather";
 
 function Weather() {
-  const [weatherdata, setWeatherdata] = useState(null);
+  // const [weatherdata, setWeatherdata] = useState(null);
   const [dailyWeatherData, setDailyWeatherData] = useState(null);
   const [hourWeatherData, setHourWeatherData] = useState();
   const { setLocate, lng, lat } = useSelector((state) => state.userLocation);
