@@ -65,7 +65,7 @@ router.post("/signup", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
-    console.log(req.body)
+    console.log(req.body);
     const foundUser = await prisma.user.findFirst({
       where: {
         email: req.body.email,
@@ -131,7 +131,6 @@ router.get(
       const currentUser = req.user;
 
       if (currentUser) {
-    
         res.status(200).json({
           success: true,
           data: currentUser,
@@ -143,7 +142,6 @@ router.get(
         });
       }
     } catch (error) {
-   
       res.status(500).json({
         success: false,
         message: "something went wrong",
@@ -152,15 +150,14 @@ router.get(
   }
 );
 
-router.get('/delete',async(req, res)=>{
-  const deleteUser = await prisma.user.deleteMany({})
+router.get("/delete", async (req, res) => {
+  const deleteUser = await prisma.user.deleteMany({});
 
   res.status(200).json({
     success: true,
-    data: deleteUser
+    data: deleteUser,
   });
-
-})
+});
 // deleting a user
 router.delete("/:id", async (req, res) => {
   try {

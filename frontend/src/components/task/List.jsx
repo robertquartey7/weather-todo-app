@@ -15,17 +15,11 @@ function List() {
 
       if (data) {
         setListData(data.data);
-     
       }
     }
     getListData();
   }, []);
 
-
-
-
-
-  
   return (
     <div>
       <div>
@@ -50,9 +44,9 @@ function List() {
             <div>
               {listData &&
                 listData.map((item) => (
-                  <Link to={`/task/${item.id}`}>
+                  
                     <ListCard list={item} key={item.id} />
-                  </Link>
+               
                 ))}
             </div>
           ) : (

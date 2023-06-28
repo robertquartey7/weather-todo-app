@@ -2,8 +2,11 @@ import React, { useState, useRef } from "react";
 
 import { useForm } from "react-hook-form";
 import { createTask } from "../../utils/api";
+import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 function CreateTodo() {
   const dataRef = useRef();
+  const { id } = useParams();
   const {
     register,
     handleSubmit,
@@ -16,8 +19,13 @@ function CreateTodo() {
       title,
       description,
       datetime: dataRef.current?.value,
+      taskId: id,
     });
-    console.log(newTask);
+    if (newTask.status === 201) {
+      toast.success("task created !!!");
+      location.reload()
+    }
+  
   }
 
   return (

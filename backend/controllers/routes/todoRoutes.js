@@ -76,6 +76,7 @@ router.get(
   }
 );
 
+// getting one task from a spefic id
 router.get(
   "list/:listId/task/:taskId",
   passport.authenticate("jwt", passportOptions),
@@ -134,7 +135,7 @@ router.post(
 
 // create task
 router.post(
-  "/list/task/:taskId",
+  "/list/:listId/task",
   passport.authenticate("jwt", passportOptions),
   async (req, res) => {
     try {
@@ -149,7 +150,7 @@ router.post(
           completed: false,
           dueDate: date,
           userId: req.user.id,
-          listId: req.params.taskId,
+          listId: req.params.listId,
         },
       });
       if (newTask) {
@@ -168,4 +169,128 @@ router.post(
   }
 );
 
+// delete list
+router.delete(
+  "/list/:listId",
+  passport.authenticate("jwt", passportOptions),
+  async (req, res) => {
+    try {
+      const deleteTask = await prisma.list.delete({
+        where: {
+          id: req.params.listId,
+        },
+      });
+
+      if (deleteTask) {
+        res.status(200).json({
+          success: true,
+        });
+      } else {
+        res.status(404).json({
+          success: false,
+          message: "Not Found",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({
+        success: false,
+        message: "Something wrong",
+      });
+    }
+  }
+);
+
+// deleting task
+
+router.delete(
+  "/task/:taskId",
+  passport.authenticate("jwt", passportOptions),
+  async (req, res) => {
+    console.log("first");
+    try {
+      const deleteTask = await prisma.todos.delete({
+        where: {
+          id: req.params.taskId,
+        },
+      });
+
+      if (deleteTask) {
+        res.status(200).json({
+          success: true,
+        });
+      } else {
+        res.status(404).json({
+          success: false,
+          message: "Not Found",
+        });
+      }
+    } catch (error) {
+      res.status(500).json({
+        success: false,
+        message: "Something wrong",
+      });
+    }
+  }
+);
+
+// getting status
+
+router.get(
+  "/task",
+  passport.authenticate("jwt", passportOptions),
+  async (req, res) => {
+    const { query } = req.query;
+
+    try {
+
+
+
+
+      
+      if (query === "ALL") {
+        const todos = await prisma.todos.findMany({
+          where: {
+            userId: req.user.id,
+          },
+        });
+        if (todos) {
+          res.status(200).json({
+            success: true,
+            data: todos,
+          });
+        } else {
+          res.status(404).json({
+            success: false,
+            message: "Not Found",
+          });
+        }
+      } else {
+        const todos = await prisma.todos.findMany({
+          where: {
+            status: query,
+            userId: req.user.id,
+          },
+        });
+        if (todos) {
+          res.status(200).json({
+            success: true,
+            data: todos,
+          });
+        } else {
+          res.status(404).json({
+            success: false,
+            message: "Not Found",
+          });
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({
+        success: false,
+        message: "Something wrong",
+      });
+    }
+  }
+);
 export default router;

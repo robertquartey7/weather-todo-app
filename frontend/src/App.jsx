@@ -30,7 +30,7 @@ function App() {
       <div className="md:col-span-1 md:static absolute bottom-3 left-1/2 transform -translate-x-1/2  md:transform-none">
         <Sidebar />
       </div>
-      <div className="md:col-span-11    bg-gradient-to-r from-slate-200 via-slate-100 to-slate-50   text-black ">
+      <div className="md:col-span-11    bg-gradient-to-r from-slate-200 via-slate-100 to-slate-50   text-black  md:min-h-screen">
         <div>
           <Navbar />
         </div>

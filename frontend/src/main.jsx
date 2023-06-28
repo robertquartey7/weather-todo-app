@@ -16,10 +16,15 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store.js";
 import ListDetails from "./components/task/ListDetails.jsx";
 import List from "./components/task/List.jsx";
+import ProtectedRoute from "./utils/ProtectedRoutes.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: (
+      <ProtectedRoute>
+        <App />
+      </ProtectedRoute>
+    ),
     children: [
       {
         path: "",

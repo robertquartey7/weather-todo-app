@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { getCurrentUser } from "../utils/api";
-
+import cookie from "js-cookie";
 function Navbar() {
   const [user, setUser] = useState(null);
   getCurrentUser().then(({ data: { data } }) => {
     setUser(data.fullName);
   });
-
+  function logout() {
+    cookie.remove("token");
+    location.reload()
+  }
   return (
     <nav className="h-20 bg-slate-100 shadow-lg flex justify-between px-10">
       <div>
@@ -21,6 +24,7 @@ function Navbar() {
           <img src="" alt="" />
         </div>
         <span className="">{user && user}</span>
+        <button onClick={logout}>Logout</button>
       </div>
     </nav>
   );

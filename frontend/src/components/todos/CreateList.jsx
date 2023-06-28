@@ -11,13 +11,13 @@ function CreateList() {
     formState: { errors },
   } = useForm();
 
-  async function onSubmit({ title, description }) {
+  async function onSubmit({ title }) {
     const { status } = await createList({
       title,
     });
     if (status === 201) {
       toast.success("List Created");
-      console.log(newTask);
+      location.reload();
     } else {
       toast.error("Something went wrong");
     }

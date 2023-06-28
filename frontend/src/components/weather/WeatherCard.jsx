@@ -17,7 +17,7 @@ function Weathercard() {
 
   if (weatherdata) {
     const date = new Date();
-    console.log(weatherdata)
+  
 
     return (
       <div className="w-full rounded overflow-hidden shadow-lg flex justify-between px-5 md:px-20 mix-blend-multiply ">

@@ -114,10 +114,10 @@ export async function createList({ title }) {
   }
 }
 // creating task
-export async function createTask({ title, description, datetime }) {
+export async function createTask({ title, description, datetime, taskId }) {
   try {
     const task = await axios.post(
-      `${backendurl}/task`,
+      `${backendurl}/list/${taskId}/task`,
       {
         title,
         description,
@@ -152,11 +152,64 @@ export async function getAllList() {
   }
 }
 
-// getting a specfic list 
-export async function getAlltask({id}) {
+// getting a specfic list
+export async function getAlltask({ id }) {
   try {
     const task = await axios.get(
       `${backendurl}/list/${id}/task`,
+
+      {
+        headers: {
+          Authorization: `Bearer ${cookie.get("token")}`,
+        },
+      }
+    );
+    if (task) return task;
+  } catch (error) {
+    return error;
+  }
+}
+
+// deleting list
+
+export async function deleteList({ id }) {
+  try {
+    const task = await axios.delete(
+      `${backendurl}/list/${id}`,
+
+      {
+        headers: {
+          Authorization: `Bearer ${cookie.get("token")}`,
+        },
+      }
+    );
+    if (task) return task;
+  } catch (error) {
+    return error;
+  }
+}
+
+// deleting task
+export async function deleteTask({ id }) {
+  try {
+    const task = await axios.delete(
+      `${backendurl}/task/${id}`,
+
+      {
+        headers: {
+          Authorization: `Bearer ${cookie.get("token")}`,
+        },
+      }
+    );
+    if (task) return task;
+  } catch (error) {
+    return error;
+  }
+}
+export async function getAllStatus({query}) {
+  try {
+    const task = await axios.get(
+      `${backendurl}/task?query=${query}`,
 
       {
         headers: {

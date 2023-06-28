@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CreateTodo from "./todos/CreateTodo";
-import CreateList from './todos/CreateList'
+import CreateList from "./todos/CreateList";
+import Loading from "./Loading";
 export default function Modal({ clicked, setClicked, type }) {
   const [showModal, setShowModal] = useState(true);
   console.log(clicked);
@@ -33,8 +34,7 @@ export default function Modal({ clicked, setClicked, type }) {
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
-                {type === 'list' ? <CreateList/> : <CreateTodo/>}
-                
+                  {type === "list" ? <CreateList /> : <CreateTodo />}
                 </div>
                 {/*footer*/}
                 <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
@@ -48,14 +48,16 @@ export default function Modal({ clicked, setClicked, type }) {
                   >
                     Close
                   </button>
-                 
                 </div>
               </div>
             </div>
+            {clicked && <Modal setClicked={setClicked} />}
           </div>
           <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
         </>
-      ) : null}
+      ) : (
+        <Loading />
+      )}
     </>
   );
 }
