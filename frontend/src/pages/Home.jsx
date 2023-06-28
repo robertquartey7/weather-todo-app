@@ -11,7 +11,9 @@ function Home() {
         <div>
           <Title title={"Weather Forecast"} link={"/weather"} />
           {/* weather deatils */}
-          <div className="px-10"><Weathercard /></div>
+          <div className="px-10">
+            <Weathercard />
+          </div>
         </div>
       </div>
       <div>

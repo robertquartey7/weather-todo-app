@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
-import { PlusCircleIcon } from "@heroicons/react/24/solid";
-import Weathercard from "./components/weather/weathercard";
-import Task from "./components/todos/Task";
-import Title from "./components/Title";
-import { Link, Outlet } from "react-router-dom";
+
+import {  Outlet } from "react-router-dom";
 import Greet from "./components/Greet";
 import { useDispatch } from "react-redux";
 
