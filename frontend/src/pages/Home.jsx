@@ -1,7 +1,7 @@
 import React from "react";
 import Title from "../components/Title";
 import Task from "../components/todos/Task";
-import Weathercard from "../components/weather/WeatherCard";
+import WeatherCard from "../components/weather/WeatherCard";
 
 function Home() {
   return (
@@ -12,7 +12,7 @@ function Home() {
           <Title title={"Weather Forecast"} link={"/weather"} />
           {/* weather deatils */}
           <div className="px-10">
-            <Weathercard />
+            <WeatherCard />
           </div>
         </div>
       </div>

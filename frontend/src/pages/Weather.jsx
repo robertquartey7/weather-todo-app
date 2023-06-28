@@ -5,7 +5,7 @@ import WeeklyWeather from "../components/weather/WeeklyWeather";
 import { useSelector } from "react-redux";
 import { getWeeklyWeatherInfo } from "../utils/api";
 import DailyWeather from "../components/weather/DailyWeather";
-import Weathercard from "../components/weather/WeatherCard";
+import WeatherCard from "../components/weather/WeatherCard";
 
 function Weather() {
   // const [weatherdata, setWeatherdata] = useState(null);
@@ -18,7 +18,6 @@ function Weather() {
     if (data) {
       setDailyWeatherData(data?.data.daily);
       setHourWeatherData(data?.data.hourly);
-     
     }
   }
 
@@ -31,7 +30,7 @@ function Weather() {
         <WeatherSearch />
       </div>
       <div className="shadow-2xl rounded-3xl overflow-hidden mt-5  ">
-        <Weathercard />
+        <WeatherCard />
       </div>
       <div className="md:px-10 px-5  flex flex-col gap-5 mt-5 shadow-lg">
         <div className=" flex flex-col">
@@ -43,7 +42,9 @@ function Weather() {
           </div>
         </div>
         <div className="flex flex-col">
-          <span className="pb-10 font-bold text-3xl my-5 py-5">Weekly Weather Forecast</span>
+          <span className="pb-10 font-bold text-3xl my-5 py-5">
+            Weekly Weather Forecast
+          </span>
           <div>
             {dailyWeatherData && (
               <WeeklyWeather weeklyWeatherData={dailyWeatherData} />

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getCurrentWeatherInfo, weatherIconUrl } from "../../utils/api";
 import { useSelector } from "react-redux";
-function Weathercard() {
+function WeatherCard() {
   const [weatherdata, setWeatherdata] = useState(null);
   const userLocation = useSelector((state) => state.userLocation);
   async function currentLocation() {
@@ -66,4 +66,4 @@ function Weathercard() {
   return <div>null</div>;
 }
 
-export default Weathercard;
+export default WeatherCard;
