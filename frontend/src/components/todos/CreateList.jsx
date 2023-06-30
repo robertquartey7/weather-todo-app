@@ -3,8 +3,10 @@ import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { createList } from "../../utils/api";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 function CreateList() {
   const dataRef = useRef();
+  const navigate = useNavigatevigate();
   const {
     register,
     handleSubmit,
@@ -17,7 +19,7 @@ function CreateList() {
     });
     if (status === 201) {
       toast.success("List Created");
-      location.reload();
+      navigate("/", { replace: true });
     } else {
       toast.error("Something went wrong");
     }

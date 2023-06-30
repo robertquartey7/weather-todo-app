@@ -2,10 +2,12 @@ import React, { useState, useRef } from "react";
 
 import { useForm } from "react-hook-form";
 import { createTask } from "../../utils/api";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+
 function CreateTodo() {
   const dataRef = useRef();
+  const navigate = useNavigate();
   const { id } = useParams();
   const {
     register,
@@ -23,9 +25,8 @@ function CreateTodo() {
     });
     if (newTask.status === 201) {
       toast.success("task created !!!");
-      location.reload()
+      navigate("/", { replace: true });
     }
-  
   }
 
   return (

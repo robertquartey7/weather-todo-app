@@ -69,7 +69,8 @@ function Login() {
             Login
           </button>
           <Link to={"/signup"}>
-           Don't have an accouunt <span className="text-center text-blue-600">Sign</span>
+            Don't have an accouunt{" "}
+            <span className="text-center text-blue-600">Sign</span>
           </Link>
         </form>
       </div>
