@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 function CreateList() {
   const dataRef = useRef();
-  const navigate = useNavigatevigate();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
